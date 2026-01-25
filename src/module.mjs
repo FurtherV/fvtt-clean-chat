@@ -1,10 +1,31 @@
 import "./less/furtherv-clean-chat.less";
 
+/** @typedef {import("@client/documents/chat-message.mjs").default} ChatMessage */
+
 /* -------------------------------------------- */
 /*            Module Initialization             */
 /* -------------------------------------------- */
 
+Hooks.on("createChatMessage", onCreateChatMessage);
 Hooks.on("dnd5e.postCreateUsageMessage", onPostCreateUsageMessage);
+
+/**
+ * @param {ChatMessage} message
+ * @param {object} options
+ * @param {string} userId
+ */
+async function onCreateChatMessage(message, options, userId) {
+  // only run for active GM
+  if (!game.user.isActiveGM) return;
+
+  if (game.messages.contents.length <= 100) return;
+
+  // get rerverse sorted array of all messages, newest first
+  const messages = game.messages.contents.toSorted((a, b) => b.timestamp - a.timestamp);
+
+  // delete all except the first 100 ones
+  await Promise.all(messages.slice(100).map(msg => msg.delete()));
+}
 
 /**
  *
