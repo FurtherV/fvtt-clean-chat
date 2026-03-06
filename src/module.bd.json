@@ -22,13 +22,13 @@
   "profile": {
     "dev": {
       "compress": false,
-      "sourcemaps": false,
+      "sourcemaps": true,
       "clean": false,
       "hmr": true
     },
     "release": {
       "compress": true,
-      "sourcemaps": false,
+      "sourcemaps": true,
       "clean": true,
       "hmr": false,
       "package": {
