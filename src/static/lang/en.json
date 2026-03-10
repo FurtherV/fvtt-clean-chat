@@ -1,1 +1,10 @@
-{}
+{
+  "FURTHERV-CLEAN-CHAT": {
+    "SETTINGS": {
+      "messageRetention": {
+        "name": "Message Retention",
+        "hint": "This amount of newer messages are kept and all older messages are deleted."
+      }
+    }
+  }
+}

@@ -15,3 +15,10 @@ export const TEMPLATES_FOLDER = `modules/${MODULE_ID}/templates`;
 
 /** @type {string} */
 export const ICONS_FOLDER = `modules/${MODULE_ID}/static/icons`;
+
+/**
+ * @enum {string}
+ */
+export const SETTINGS = {
+  MESSAGE_RETENTION: "messageRetention",
+};
